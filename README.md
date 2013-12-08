@@ -1,4 +1,4 @@
-#cl-strings
+#cl-strings [![Build Status](https://travis-ci.org/shakyShane/cl-strings.png?branch=master)](https://travis-ci.org/shakyShane/cl-strings)
 > String template system for multi-colour console output with interpolation.
 
 Basically a wrapper around [cli-color](https://npmjs.org/package/cli-color) & [lodash templates](http://lodash.com/docs#template)

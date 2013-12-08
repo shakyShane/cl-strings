@@ -1,0 +1,33 @@
+{
+  "name": "cl-strings",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt jasmine_node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shakyShane/cl-strings.git"
+  },
+  "keywords": [
+    "cli",
+    "strings",
+    "command-line",
+    "colours"
+  ],
+  "author": "Shane Osbourne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shakyShane/cl-strings/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-jasmine-node": "~0.1.0",
+    "grunt-contrib-watch": "~0.5.3"
+  },
+  "dependencies": {
+    "cli-color": "~0.2.3",
+    "lodash": "~2.4.1"
+  }
+}

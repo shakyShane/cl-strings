@@ -11,4 +11,14 @@ describe("Returning the compile function", function () {
         var expected = "[BS] kittie";
         expect(actual).toBe(expected);
     });
+    it("can compile multiple lines with prefix (1)", function () {
+        var actual = ansiTrim(compile(["kittie", "shane"]));
+        var expected = "[BS] kittie\n[BS] shane";
+        expect(actual).toBe(expected);
+    });
+    it("can compile multiple lines with prefix (2)", function () {
+        var actual = ansiTrim(compile(["{green:kittie}", "shane"]));
+        var expected = "[BS] kittie\n[BS] shane";
+        expect(actual).toBe(expected);
+    });
 });

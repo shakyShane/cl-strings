@@ -48,6 +48,18 @@ module.exports.compile = compile;
  */
 module.exports.getCompiler = function (prefix) {
     return function (template, params) {
+
+        var output = [];
+
+        if (Array.isArray(template)) {
+
+            template.forEach(function (item) {
+                output.push(compile(item, params, prefix));
+            });
+
+            return output.join("\n");
+        }
+
         return compile(template, params, prefix);
     };
 };

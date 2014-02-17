@@ -1,4 +1,4 @@
-var clc = require("cli-color");
+var chalk = require("chalk");
 var _ = require("lodash");
 
 _.templateSettings.interpolate = /{:([\s\S]+?):}/g
@@ -16,7 +16,7 @@ var compile = function (template, params, prefix) {
         var color = split[1];
         var content = split[2];
 
-        return clc[color](content);
+        return chalk[color](content);
     };
 
     /**
@@ -63,4 +63,6 @@ module.exports.getCompiler = function (prefix) {
         return compile(template, params, prefix);
     };
 };
-module.exports.clc = clc;
+
+module.exports.clc = chalk;
+module.exports.chalk = chalk;

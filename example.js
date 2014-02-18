@@ -1,5 +1,6 @@
 var compile = require("./index").compile;
 var compileWithPrexfix = require("./index").getCompiler("[PREFIX]");
+
 var string;
 var multiLine;
 

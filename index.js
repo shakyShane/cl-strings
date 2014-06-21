@@ -1,32 +1,18 @@
 var chalk = require("chalk");
 var _ = require("lodash");
-
-_.templateSettings.interpolate = /{:([\s\S]+?):}/g
+var matchRecursive = require('match-recursive');
 
 var compile = function (template, params, prefix) {
-
-    /**
-     * @param string
-     * @returns {String}
-     */
-    var modifier = function (string) {
-
-        var split = /{(.+?[^:]):(.+?)(?:})/.exec(string);
-
-        var color = split[1];
-        var content = split[2];
-
-        return chalk[color](content);
-    };
-
-    /**
-     * @param string
-     * @returns {String}
-     */
-    var replacer = function (string) {
-        return modifier(string);
-    };
-
+    function modify(str) {
+        return _.reduce(matchRecursive(str, '{...}'), function (str, match) {
+            var original = '{' + match + '}';
+            // note the recursion. This ensures nested matches containing potential matches are handled.
+            var split = /(.+?[^:]):(.+)/.exec(modify(match));
+            var color = split[1];
+            var content = split[2];
+            return str.replace(original, chalk[color](content));
+        }, str);
+    }
 
     if (params) {
         template = _.template(template)(params);
@@ -36,7 +22,7 @@ var compile = function (template, params, prefix) {
         template = [prefix, template].join(" ");
     }
 
-    return template.replace(/({.+?[^:]:)(.+?)(?:})/g, replacer);
+    return modify(template);
 };
 
 module.exports.compile = compile;

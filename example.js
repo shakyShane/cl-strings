@@ -12,6 +12,9 @@ console.log(compile(singleLine));
 var multiColor = "{green:This is a green string} with a {red:red string} inside";
 console.log(compile(multiColor));
 
+var nestedColor = "{green:This is a green string with a {red:red string} inside}";
+console.log(compile(nestedColor));
+
 // With prefix & Multiline
 var prefixed = [];
 prefixed.push("This is line 1");

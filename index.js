@@ -1,7 +1,7 @@
 var chalk = require("chalk");
 var _ = require("lodash");
 
-_.templateSettings.interpolate = /{:([\s\S]+?):}/g
+_.templateSettings.interpolate = /{:([\s\S]+?):}/g;
 
 var compile = function (template, params, prefix) {
 

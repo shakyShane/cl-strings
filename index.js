@@ -19,15 +19,6 @@ var compile = function (template, params, prefix) {
         return chalk[color](content);
     };
 
-    /**
-     * @param string
-     * @returns {String}
-     */
-    var replacer = function (string) {
-        return modifier(string);
-    };
-
-
     if (params) {
         template = _.template(template)(params);
     }
@@ -36,7 +27,7 @@ var compile = function (template, params, prefix) {
         template = [prefix, template].join(" ");
     }
 
-    return template.replace(/({.+?[^:]:)(.+?)(?:})/g, replacer);
+    return template.replace(/({.+?[^:]:)(.+?)(?:})/g, modifier);
 };
 
 module.exports.compile = compile;

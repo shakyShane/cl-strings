@@ -6,7 +6,7 @@ gulp.task('lint', function () {
     gulp.src(['test/*.js', 'index.js', 'lib/*'])
         .pipe(jshint('test/.jshintrc'))
         .pipe(jshint.reporter('default'))
-        .pipe(jshint.reporter('fail'))
+        .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('test', function () {

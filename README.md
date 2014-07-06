@@ -27,7 +27,7 @@ var singleLine = "{green:This is a green string}";
 console.log(compile(singleLine));
 
 // Single Line, multi colour
-var multiColor = "{green:This is a green string} with a {red:red string} inside";
+var multiColor = "These are a {green:green string} and a {red:red string}";
 console.log(compile(multiColor));
 
 // With prefix & Multiline
